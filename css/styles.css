@@ -983,4 +983,5 @@ form.switchboard-form::before {
 
 hr {
   border-top-width: 3px;
+  opacity: 1;
 }
