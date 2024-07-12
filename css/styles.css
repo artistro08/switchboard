@@ -980,3 +980,7 @@ form.switchboard-form::before {
 .events-accordion .accordion-button {
   font-weight: 800;
 }
+
+hr {
+  border-top-width: 3px;
+}
