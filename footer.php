@@ -14,6 +14,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 ?>
 <?php // Closing main from header.php. ?>
 <img class="home-page-overlay d-lg-none" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/home-page-overlay.svg' ?>" alt="<?php echo get_bloginfo('name'); ?>">
+</main>
 <?php if (class_exists('acf')) : ?>
     <?php if (get_field('show_floating_button', 'option')): ?>
         <div class="floating-button">
@@ -30,7 +31,6 @@ $container = get_theme_mod( 'understrap_container_type' );
         </div>
     <?php endif; ?>
 <?php endif; ?>
-</main>
 
 <footer>
     <!-- The social menu goes here -->

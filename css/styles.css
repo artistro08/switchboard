@@ -883,9 +883,9 @@ form.switchboard-form::before {
 
 .floating-button {
   position: absolute;
-  bottom: 0;
+  bottom: var(--footer-height);
   right: 2rem;
-  z-index: 20;
+  z-index: 1066;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -899,7 +899,7 @@ form.switchboard-form::before {
   font-weight: bold;
   text-align: right;
   background-color: #eee485;
-    padding: 0 .9rem;
+  padding: 0 .9rem;
   background-image: url(../assets/img/bg-form.jpg);
   background-size: cover;
   background-position: center;
@@ -989,4 +989,9 @@ hr {
 h1.wp-block-heading, h2.wp-block-heading, h3.wp-block-heading, h4.wp-block-heading, h5.wp-block-heading, h6.wp-block-heading {
   /* font-family: futura-condensed, sans-serif; */
   font-weight: 800;
+}
+
+.floating-button .content {
+  max-height: calc(95vh - calc(var(--navbar-height) + var(--footer-height)));
+  overflow-y: scroll;
 }
