@@ -142,6 +142,7 @@ $events               = new WP_Query($args); ?>
                     <?php
                         // Get the start and end dates
                         $start_date = DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()));
+                        $start_date_time = DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()));
                         $end_date = DateTime::createFromFormat("F j, Y g:i a", get_field('end_date', get_the_ID()));
 
                         $is_past_event = $end_date < new DateTime() ? true : false;
@@ -153,7 +154,8 @@ $events               = new WP_Query($args); ?>
                         $end_date = ($start_date->format('Y-m-d') == $end_date->format('Y-m-d')) ? $end_date->format('g:i a') : $end_date->format('F j, Y g:i a');
                         
                         // format the start date to a human readable format
-                        $start_date = $start_date->format('F j, Y g:i a');
+                        $start_date = $start_date->format('F j, Y');
+                        $start_date_time = $start_date_time->format('g:i a');
 
                         $is_editing = str_contains(admin_url(sprintf('admin.php?%s', http_build_query($_GET))), 'edit') ? true : false;
                         
@@ -205,7 +207,9 @@ $events               = new WP_Query($args); ?>
                                 <button class="accordion-button fs-3 align-items-center justify-content-center collapsed flex-wrap" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#<?php echo "{$accordion_id}_events_collapse_{$index}"; ?>" aria-expanded="<?php echo $index === 0 ? 'true' : 'false'; ?>"
                                     aria-controls="<?php echo "{$accordion_id}_events_collapse_{$index}"; ?>">
-                                    <?php echo get_the_title(); ?>:&nbsp;<?php echo $location_title ?>- <?php echo $start_date ?> - <?php echo $end_date; ?>
+                                    <div class="text-center">
+                                        <?php echo get_the_title(); ?>:&nbsp;<?php echo $location_title ?>- <?php echo $start_date ?> <br> <?php echo $start_date_time ?> - <?php echo $end_date; ?>
+                                    </div>
                                 </button>
                             </h2>
                             <div id="<?php echo "{$accordion_id}_events_collapse_{$index}"; ?>"

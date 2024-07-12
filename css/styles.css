@@ -976,3 +976,7 @@ form.switchboard-form::before {
     height: 50px;
     pointer-events: none;
 }
+
+.events-accordion .accordion-button {
+  font-weight: 800;
+}
