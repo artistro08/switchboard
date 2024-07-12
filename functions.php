@@ -108,9 +108,9 @@ if (! function_exists('switchboard_register_menus')) {
 	function switchboard_register_menus()
 	{
 		register_nav_menus(array(
-			'primary'      => __('Primary Menu', 'understrap-child'),
-			'social_areas' => __('Social Menu', 'text_domain'),
-			'homepage'     => __('Homepage Menu', 'text_domain'),
+			'primary'      => __('Primary Menu', 'switchboard_child'),
+			'social_areas' => __('Social Menu', 'switchboard_child'),
+			'homepage'     => __('Homepage Menu', 'switchboard_child'),
 		));
 	}
 	add_action('after_setup_theme', 'switchboard_register_menus', 0);
