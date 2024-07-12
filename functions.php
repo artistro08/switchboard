@@ -103,8 +103,21 @@ function understrap_child_customize_controls_js()
 }
 add_action('customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js');
 
+if (! function_exists('switchboard_register_menus')) {
+
+	function switchboard_register_menus()
+	{
+		register_nav_menus(array(
+			'primary'      => __('Primary Menu', 'understrap-child'),
+			'social_areas' => __('Social Menu', 'text_domain'),
+			'homepage'     => __('Homepage Menu', 'text_domain'),
+		));
+	}
+	add_action('after_setup_theme', 'switchboard_register_menus', 0);
+}
+
 // Get menu by menu location
-function menu_items($menu_slug) : bool|array
+function menu_items($menu_slug)
 {
 
 	$menu_items = array();
