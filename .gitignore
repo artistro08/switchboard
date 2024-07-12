@@ -3,29 +3,6 @@
 # - https://git-scm.com/docs/gitignore
 # ------------------------------------------------------------------------
 
-# Numerous always-ignore extensions
-*.bak
-*.cvs
-*.db
-*.diff
-*.err
-*.log
-*.orig
-*.rej
-*.zip
-
-# Ignore all files and directories starting with . or ~ or ._ or ending with ~
-.*
-~*
-*~
-._*
-# but track
-!.babelrc.js
-!.browserslist
-!.editorconfig
-!.gitattributes
-!.github
-!.gitignore
 
 # Ignore all files with .lock extentions
 *.lock
@@ -47,5 +24,3 @@ node_modules
 
 # Other Understrap specific files and directories
 phpcs.xml
-dist/
-dist-product/
