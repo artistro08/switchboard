@@ -47,7 +47,9 @@ function theme_enqueue_styles()
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('child-understrap-scripts', get_stylesheet_directory_uri() . $theme_scripts, array(), $the_theme->get('Version'), true);
 	wp_enqueue_script('anime-js', get_stylesheet_directory_uri() . '/js/anime.min.js', array(), $the_theme->get('Version'), true);
-	wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBEAl08GFHbP1iYRSpgFz-Wy3NjaO475go&callback=Function.prototype');
+	if (class_exists('acf')) {
+		wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . get_field('google_maps_api_key', 'option') . '&callback=Function.prototype');
+	}
 	wp_enqueue_script('barba-core', 'https://unpkg.com/@barba/core', array(), $the_theme->get('Version'), true);
 	wp_enqueue_script('barba-transitions', get_stylesheet_directory_uri() . '/js/barba-transitions.js', array(), $the_theme->get('Version'), true);
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -958,6 +960,51 @@ if (class_exists('acf')) {
 			'show_in_rest'          => 0,
 		));
 
+		acf_add_local_field_group(array(
+			'key'                   => 'group_66914e77d656d',
+			'title'                 => 'API Keys',
+			'fields'                => array(
+				array(
+					'key'               => 'field_66914e78d6949',
+					'label'             => 'Google Maps API Key',
+					'name'              => 'google_maps_api_key',
+					'aria-label'        => '',
+					'type'              => 'text',
+					'instructions'      => 'Add your Google Maps API Key. Used in Events to get and show maps',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => '',
+					'maxlength'         => '',
+					'placeholder'       => '',
+					'prepend'           => '',
+					'append'            => '',
+				),
+			),
+			'location'              => array(
+				array(
+					array(
+						'param'    => 'options_page',
+						'operator' => '==',
+						'value'    => 'theme-settings',
+					),
+				),
+			),
+			'menu_order'            => 0,
+			'position'              => 'normal',
+			'style'                 => 'default',
+			'label_placement'       => 'top',
+			'instruction_placement' => 'label',
+			'hide_on_screen'        => '',
+			'active'                => true,
+			'description'           => '',
+			'show_in_rest'          => 0,
+		));
+
 	});
 
 	// Add ACF Options Page
@@ -1153,9 +1200,10 @@ if (class_exists('acf')) {
  * ACF Google Maps API key Registration
  */
 function switchboard_google_map_api($api)
-{
-	$api['key'] = 'AIzaSyBEAl08GFHbP1iYRSpgFz-Wy3NjaO475go';
-	return $api;
+{	if (class_exists('acf')) {
+		$api['key'] = get_field('google_maps_api_key', 'option');
+		return $api;
+	}
 }
 add_filter('acf/fields/google_map/api', 'switchboard_google_map_api');
 
