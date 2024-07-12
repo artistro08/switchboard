@@ -1,0 +1,27 @@
+{
+    "name": "acf/events",
+    "title": "Events",
+    "description": "Display a list of filterable events",
+    "style": [
+        "file:./events.css",
+        "file:../../css/child-theme.css"
+    ],
+    "script": [
+        "add-to-calendar"
+    ],
+    "category": "media",
+    "icon": "calendar-alt",
+    "keywords": [
+        "events",
+        "download",
+        "pdf", 
+        "list"
+    ],
+    "acf": {
+        "mode": "auto",
+        "renderTemplate": "events.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

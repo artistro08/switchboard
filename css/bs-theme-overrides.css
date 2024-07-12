@@ -1,0 +1,13 @@
+:root, [data-bs-theme=light] {
+  --bs-body-color: #E6E7E8;
+  --bs-body-color-rgb: 230,231,232;
+  --bs-secondary-color: rgba(230,231,232,0.75);
+  --bs-secondary-color-rgb: 230,231,232,0.75;
+  --bs-tertiary-color: rgba(230,231,232,0.5);
+  --bs-tertiary-color-rgb: 230,231,232,0.5;
+  --bs-body-bg: #3A225E;
+  --bs-body-bg-rgb: 58,34,94;
+  --bs-body-font-family: futura-pt-condensed;
+  --bs-body-font-size: 1.4rem;
+}
+

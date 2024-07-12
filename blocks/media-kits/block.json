@@ -1,0 +1,24 @@
+{
+    "name": "acf/media-kits",
+    "title": "Media Kits",
+    "description": "Display your media kits in a list",
+    "style": [
+        "file:./media-kits.css",
+        "file:../../css/child-theme.css"
+    ],
+    "category": "media",
+    "icon": "excerpt-view",
+    "keywords": [
+        "media_kits",
+        "download",
+        "pdf", 
+        "list"
+    ],
+    "acf": {
+        "mode": "auto",
+        "renderTemplate": "media-kits.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

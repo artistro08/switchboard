@@ -1,0 +1,27 @@
+{
+    "name": "acf/gallery",
+    "title": "Simple Gallery",
+    "description": "A simple custom gallery block that uses a fancybox lightbox.",
+    "style": [
+        "file:./gallery.css",
+        "file:./fancybox.css",
+        "file:../../css/child-theme.css"
+    ],
+    "script": [
+        "fancybox",
+        "fancybox-init"
+    ],
+    "category": "media",
+    "icon": "format-gallery",
+    "keywords": [
+        "gallery",
+        "quote"
+    ],
+    "acf": {
+        "mode": "auto",
+        "renderTemplate": "gallery.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

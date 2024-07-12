@@ -1,0 +1,15 @@
+.simple-gallery-image {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.simple-gallery-image img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.acf-block-component .simple-gallery-image {
+  pointer-events: none; 
+}

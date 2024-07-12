@@ -1,0 +1,30 @@
+{
+    "name": "acf/carousel",
+    "title": "Carousel",
+    "description": "A custom carousel block that uses a fancybox lightbox, also supports rich captions.",
+    "style": [
+        "file:./carousel.css",
+        "file:./fancybox.css",
+        "file:./splide-core.min.css"
+    ],
+    "script": [
+        "fancybox",
+        "fancybox-init",
+        "splide",
+        "carousel"
+    ],
+    "category": "media",
+    "icon": "format-gallery",
+    "keywords": [
+        "carousel",
+        "quote"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "carousel.php"
+    },
+    "supports": {
+        "anchor": true,
+        "mode" : false
+    }
+}

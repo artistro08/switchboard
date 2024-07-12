@@ -1,0 +1,24 @@
+{
+    "name": "acf/press-releases",
+    "title": "Press Releases",
+    "description": "Display your press releases in a list",
+    "style": [
+        "file:./press-releases.css",
+        "file:../../css/child-theme.css"
+    ],
+    "category": "media",
+    "icon": "edit-page",
+    "keywords": [
+        "media_kits",
+        "download",
+        "pdf", 
+        "list"
+    ],
+    "acf": {
+        "mode": "auto",
+        "renderTemplate": "press-releases.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

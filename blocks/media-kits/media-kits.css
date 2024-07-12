@@ -1,0 +1,29 @@
+.media-kit-link {
+  text-decoration: none;
+  color: white;
+  transition: color 250ms ease;
+}
+
+.media-kit-link:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.media-kit-link:hover {
+  color: #dfccf9;
+}
+
+.acf-block-body .media-kit-link:hover {
+  color: inherit;
+}
+
+.acf-block-body .media-kit-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.media-kit-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
