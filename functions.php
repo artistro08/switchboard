@@ -701,6 +701,57 @@ if (class_exists('acf')) {
 			'show_in_rest'          => 0,
 		));
 
+		acf_add_local_field_group(array(
+			'key'                   => 'group_66917a41305cf',
+			'title'                 => 'News Posts',
+			'fields'                => array(
+				array(
+					'key'               => 'field_66917a4115d94',
+					'label'             => 'Sort',
+					'name'              => 'sort',
+					'aria-label'        => '',
+					'type'              => 'select',
+					'instructions'      => 'Sort the post by the article date',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'choices'           => array(
+						'ASC'  => 'Ascending',
+						'DESC' => 'Descending',
+					),
+					'default_value'     => false,
+					'return_format'     => 'value',
+					'multiple'          => 0,
+					'allow_null'        => 0,
+					'ui'                => 0,
+					'ajax'              => 0,
+					'placeholder'       => '',
+				),
+			),
+			'location'              => array(
+				array(
+					array(
+						'param'    => 'block',
+						'operator' => '==',
+						'value'    => 'acf/news-post',
+					),
+				),
+			),
+			'menu_order'            => 0,
+			'position'              => 'normal',
+			'style'                 => 'default',
+			'label_placement'       => 'top',
+			'instruction_placement' => 'label',
+			'hide_on_screen'        => '',
+			'active'                => true,
+			'description'           => '',
+			'show_in_rest'          => 0,
+		));
+
 		// Custom Fields
 
 		acf_add_local_field_group(array(
@@ -1020,6 +1071,86 @@ if (class_exists('acf')) {
 			'show_in_rest'          => 0,
 		));
 
+		acf_add_local_field_group(array(
+			'key'                   => 'group_669177450ad7d',
+			'title'                 => 'News Post Fields',
+			'fields'                => array(
+				array(
+					'key'               => 'field_669177457500d',
+					'label'             => 'URL',
+					'name'              => 'url',
+					'aria-label'        => '',
+					'type'              => 'url',
+					'instructions'      => 'The Link to the article',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '50',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => '',
+					'placeholder'       => '',
+				),
+				array(
+					'key'               => 'field_669177817500f',
+					'label'             => 'Date',
+					'name'              => 'date',
+					'aria-label'        => '',
+					'type'              => 'date_picker',
+					'instructions'      => 'The date the article was posted',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '50',
+						'class' => '',
+						'id'    => '',
+					),
+					'display_format'    => 'F j, Y',
+					'return_format'     => 'F j, Y',
+					'first_day'         => 1,
+				),
+				array(
+					'key'               => 'field_669177627500e',
+					'label'             => 'Author',
+					'name'              => 'author',
+					'aria-label'        => '',
+					'type'              => 'text',
+					'instructions'      => 'The author of the post',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => '',
+					'maxlength'         => '',
+					'placeholder'       => '',
+					'prepend'           => '',
+					'append'            => '',
+				),
+			),
+			'location'              => array(
+				array(
+					array(
+						'param'    => 'post_type',
+						'operator' => '==',
+						'value'    => 'news_post',
+					),
+				),
+			),
+			'menu_order'            => 0,
+			'position'              => 'normal',
+			'style'                 => 'default',
+			'label_placement'       => 'top',
+			'instruction_placement' => 'label',
+			'hide_on_screen'        => '',
+			'active'                => true,
+			'description'           => '',
+			'show_in_rest'          => 0,
+		));
+
 	});
 
 	// Add ACF Options Page
@@ -1180,6 +1311,49 @@ add_action('init', function () {
 		'delete_with_user'   => false,
 	));
 
+	register_post_type('news_post', array(
+		'labels'           => array(
+			'name'                     => 'News',
+			'singular_name'            => 'Post',
+			'menu_name'                => 'News',
+			'all_items'                => 'All Posts',
+			'edit_item'                => 'Edit Post',
+			'view_item'                => 'View Post',
+			'view_items'               => 'View Post',
+			'add_new_item'             => 'Add New Post',
+			'add_new'                  => 'Add New Post',
+			'new_item'                 => 'New Post',
+			'parent_item_colon'        => 'Parent Post:',
+			'search_items'             => 'Search News Post',
+			'not_found'                => 'No news post found',
+			'not_found_in_trash'       => 'No news post found in Trash',
+			'archives'                 => 'Post Archives',
+			'attributes'               => 'Post Attributes',
+			'insert_into_item'         => 'Insert into post',
+			'uploaded_to_this_item'    => 'Uploaded to this post',
+			'filter_items_list'        => 'Filter news post list',
+			'filter_by_date'           => 'Filter news post by date',
+			'items_list_navigation'    => 'News Post list navigation',
+			'items_list'               => 'News Post list',
+			'item_published'           => 'Post published.',
+			'item_published_privately' => 'Post published privately.',
+			'item_reverted_to_draft'   => 'Post reverted to draft.',
+			'item_scheduled'           => 'Post scheduled.',
+			'item_updated'             => 'Post updated.',
+			'item_link'                => 'Post Link',
+			'item_link_description'    => 'A link to a post.',
+		),
+		'public'           => true,
+		'show_in_rest'     => true,
+		'menu_icon'        => 'dashicons-admin-post',
+		'supports'         => array(
+			0 => 'title',
+			1 => 'thumbnail',
+			2 => 'custom-fields',
+		),
+		'delete_with_user' => false,
+	));
+
 });
 
 
@@ -1197,6 +1371,7 @@ if (class_exists('acf')) {
 		register_block_type(__DIR__ . '/blocks/media-kits');
 		register_block_type(__DIR__ . '/blocks/press-releases');
 		register_block_type(__DIR__ . '/blocks/events');
+		register_block_type(__DIR__ . '/blocks/news-post');
 	}
 	add_action('init', 'switchboard_register_acf_blocks');
 	function acf_block_scripts()

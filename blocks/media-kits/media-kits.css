@@ -27,3 +27,7 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
+
+.media-kit-title {
+  font-weight: 800;
+}

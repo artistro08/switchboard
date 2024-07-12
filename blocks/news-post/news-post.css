@@ -1,33 +1,33 @@
-.press-release-link {
+.news-post-link {
   text-decoration: none;
   color: white;
   transition: color 250ms ease;
 }
 
-.press-release-link:not(:last-child) {
+.news-post-link:not(:last-child) {
   margin-bottom: 1rem;
 }
 
-.press-release-link:hover {
+.news-post-link:hover {
   color: #dfccf9;
 }
 
-.acf-block-body .press-release-link:hover {
+.acf-block-body .news-post-link:hover {
   color: inherit;
 }
 
-.acf-block-body .press-release-link {
+.acf-block-body .news-post-link {
   text-decoration: none;
   color: inherit;
 }
 
-.press-release-image {
+.news-post-image {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
-.press-release-title {
+.news-post-title {
   font-weight: 800;
 }

@@ -1,0 +1,24 @@
+{
+    "name": "acf/news-post",
+    "title": "News Posts",
+    "description": "Display your linked articles in a list",
+    "style": [
+        "file:./news-post.css",
+        "file:../../css/child-theme.css"
+    ],
+    "category": "media",
+    "icon": "admin-post",
+    "keywords": [
+        "media_kits",
+        "download",
+        "pdf", 
+        "list"
+    ],
+    "acf": {
+        "mode": "auto",
+        "renderTemplate": "news-post.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}
