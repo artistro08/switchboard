@@ -103,6 +103,8 @@ function understrap_child_customize_controls_js()
 }
 add_action('customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js');
 
+
+// Register the menu locations
 if (! function_exists('switchboard_register_menus')) {
 
 	function switchboard_register_menus()
