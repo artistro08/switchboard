@@ -1082,7 +1082,7 @@ if (class_exists('acf')) {
 					'aria-label'        => '',
 					'type'              => 'url',
 					'instructions'      => 'The Link to the article',
-					'required'          => 0,
+					'required'          => 1,
 					'conditional_logic' => 0,
 					'wrapper'           => array(
 						'width' => '50',
@@ -1099,7 +1099,7 @@ if (class_exists('acf')) {
 					'aria-label'        => '',
 					'type'              => 'date_picker',
 					'instructions'      => 'The date the article was posted',
-					'required'          => 0,
+					'required'          => 1,
 					'conditional_logic' => 0,
 					'wrapper'           => array(
 						'width' => '50',

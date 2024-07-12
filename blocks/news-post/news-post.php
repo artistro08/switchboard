@@ -26,7 +26,7 @@ $news_posts = new WP_Query($args); ?>
                     <?php endif; ?>
                     <div class="col-10 col-lg-9">
                         <h4 class="news-post-title fs-2 mb-0 lh-1"><?php the_title(); ?></h4>
-                        <h5 class="news-post-date fs-4 mb-0"><?php the_field('author', get_the_ID()); ?>,&nbsp;<?php the_field('date', get_the_ID()); ?></h5>
+                        <h5 class="news-post-date fs-4 mb-0"><?php if (get_field('author', get_the_ID())) : ?><?php the_field('author', get_the_ID()); ?>,&nbsp;<?php endif; ?><?php the_field('date', get_the_ID()); ?></h5>
                     </div>
                 </div>
             </a>
