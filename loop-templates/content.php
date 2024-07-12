@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 <article class="mb-3" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 	<header class="entry-header">
-		<div class="row align-items-center">
+		<div class="row">
 			<?php if (has_post_thumbnail(get_the_ID())) : ?>
 				<div class="col-2 col-lg-3">
 					<a href="<?php echo get_the_permalink() ?>">

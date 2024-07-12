@@ -9,7 +9,7 @@ $args      = array(
 $press_releases = new WP_Query($args); ?>
 
 <?php if ($press_releases->have_posts()) : ?>
-    <div class="row align-items-center">
+    <div class="row">
         <?php while ($press_releases->have_posts()) : $press_releases->the_post(); ?>
             <a 
                 class="col-12 press-release-link" 

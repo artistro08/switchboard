@@ -985,3 +985,8 @@ hr {
   border-top-width: 3px;
   opacity: 1;
 }
+
+h1.wp-block-heading, h2.wp-block-heading, h3.wp-block-heading, h4.wp-block-heading, h5.wp-block-heading, h6.wp-block-heading {
+  /* font-family: futura-condensed, sans-serif; */
+  font-weight: 800;
+}

@@ -17,7 +17,7 @@ $media_kits = new WP_Query($args); ?>
                 data-barba-prevent="self"
                 target="_blank"
             >
-                <div class="row align-items-center">
+                <div class="row ">
                     <?php if (has_post_thumbnail(get_the_ID())) : ?>
                         <div class="col-2 col-lg-3">
                             <img 
