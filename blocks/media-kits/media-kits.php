@@ -13,7 +13,7 @@ $media_kits = new WP_Query($args); ?>
         <?php while ($media_kits->have_posts()) : $media_kits->the_post(); ?>
             <a 
                 class="col-12 media-kit-link" 
-                href="<?php the_field('pdf_file', get_the_ID()) ?>"
+                href="<?php the_field('media_kit_file', get_the_ID()) ?>"
                 data-barba-prevent="self"
                 target="_blank"
             >

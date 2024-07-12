@@ -712,11 +712,11 @@ if (class_exists('acf')) {
 				),
 				array(
 					'key'               => 'field_668d59e1a6b26',
-					'label'             => 'PDF File',
-					'name'              => 'pdf_file',
+					'label'             => 'Media Kit File',
+					'name'              => 'media_kit_file',
 					'aria-label'        => '',
 					'type'              => 'file',
-					'instructions'      => 'Add a downloadable PDF to this Media Kit',
+					'instructions'      => 'Add a downloadable media kit to this Entry',
 					'required'          => 0,
 					'conditional_logic' => 0,
 					'wrapper'           => array(
@@ -728,7 +728,7 @@ if (class_exists('acf')) {
 					'library'           => 'all',
 					'min_size'          => '',
 					'max_size'          => '',
-					'mime_types'        => 'pdf',
+					'mime_types'        => 'pdf,zip',
 				),
 			),
 			'location'              => array(
