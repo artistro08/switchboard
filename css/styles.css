@@ -599,13 +599,13 @@ main.panel-open:not(.no-animation):hover .panel.active {
 }
 
 .panel-content-container iframe.embedpress-embed-document-pdf {
-  height: calc(100vh - calc(var(--navbar-height) + var(--footer-height) + 2rem)) !important;
+  height: calc(100vh - calc(var(--navbar-height) + var(--footer-height))) !important;
   width: 100% !important;
 }
 
 .panel-content-container .ep-gutenberg-content {
   margin: calc(-1 * var(--panel-content-container-padding));
-  height: calc(100vh - calc(var(--navbar-height) + 2rem + var(--footer-height)));
+  height: calc(100vh - calc(var(--navbar-height) + 0rem + var(--footer-height)));
   overflow: hidden;
 }
 
