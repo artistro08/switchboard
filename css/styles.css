@@ -354,7 +354,8 @@ main.panel-open:not(.no-animation):hover .panel.active {
 .panel .panel-content {
   width: var(--panel-content-width);
   transition: width 250ms ease;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -570,12 +571,13 @@ main.panel-open:not(.no-animation):hover .panel.active {
 }
 
 .panel-content-container {
-  min-width: 80vw;
+  min-width: calc(100vw - calc(var(--panel-title-width) + 2vh));
   min-height: calc(100vh - calc(var(--navbar-height) + var(--footer-height)));
   padding: var(--panel-content-container-padding);
   opacity: 0;
   transition: opacity var(--panel-transition-speed) ease;
   position: relative;
+  overflow-x: hidden;
 }
 
 .admin-bar .panel-content-container {
@@ -640,7 +642,7 @@ main.panel-open:not(.no-animation):hover .panel.active {
   transition: opacity 250ms ease;
   width: 100vw;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .standalone-panel-content-container.add-content {
@@ -894,15 +896,18 @@ form.switchboard-form::before {
 .floating-button-link {
   background: transparent;
   border: 0;
-  color: #373535;
+  color: #bdc0e0;
   font-size: 2rem;
-  font-weight: bold;
   text-align: right;
-  background-color: #eee485;
   padding: 0 .9rem;
-  background-image: url(../assets/img/bg-form.jpg);
   background-size: cover;
   background-position: center;
+  font-weight: 800;
+  transition: all 250ms ease;
+}
+
+.floating-button-link:not(.collapsed) {
+  opacity: 0;
 }
 
 .floating-button-content {
@@ -993,5 +998,5 @@ h1.wp-block-heading, h2.wp-block-heading, h3.wp-block-heading, h4.wp-block-headi
 
 .floating-button .content {
   max-height: calc(95vh - calc(var(--navbar-height) + var(--footer-height)));
-  overflow-y: scroll;
+  overflow-y: auto;
 }

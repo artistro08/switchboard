@@ -11,7 +11,7 @@
 
 .advanced-carousel-content-container {
   width: var(--panel-title-width);
-  height: calc(100vh - calc(var(--navbar-height) + var(--footer-height) + 2rem));
+  height: calc(100vh - calc(var(--navbar-height) + var(--footer-height)));
   background-image: linear-gradient(to bottom, #3A225E -43%, #7E6EB2);
   position: relative;
 }

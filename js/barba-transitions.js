@@ -162,6 +162,7 @@ function clearFilters(filter_form_id, accordion_id) {
 
 }
 
+// Show/Hide Filters
 function showHideFilters() {
     let hiddenFilterLinks = document.querySelectorAll('.hidden-filter-links');
     hiddenFilterLinks.forEach(link => {
@@ -180,6 +181,29 @@ String.prototype.slugify = function (separator = "-") {
         .replace(/[^a-z0-9 ]/g, '')       // remove all chars not letters, numbers and spaces (to be replaced)
         .replace(/\s+/g, separator);
 };
+
+// Hide Floating Button on click outside
+function hideFloatingButton() {
+    let mainContainer = document.querySelector('#main-container');
+    let header = document.querySelector('#wrapper-navbar');
+    let footer = document.querySelector('#main-footer');
+
+    document.body.addEventListener('click', function (event) {
+        if (mainContainer.contains(event.target)) {
+            console.log('clicked inside');
+            jQuery('#floatingButtonContent').collapse('hide');
+        } else if (header.contains(event.target)) {
+            console.log('clicked inside header');
+            jQuery('#floatingButtonContent').collapse('hide');
+        } else if (footer.contains(event.target)) {
+            console.log('clicked inside footer');
+            jQuery('#floatingButtonContent').collapse('hide');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', hideFloatingButton);
+
 
 if (!minWidth.matches) {
     barba.hooks.before((data) => {
@@ -221,6 +245,7 @@ if (!minWidth.matches) {
     
     barba.hooks.after((data) => {
         initMaps();
+        hideFloatingButton();
         
         
         let filterFormElements = document.querySelectorAll('[data-filter-form-id]');
@@ -241,6 +266,7 @@ if (!minWidth.matches) {
 
             }
         }
+        
         
     });
     

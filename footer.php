@@ -32,7 +32,7 @@ $container = get_theme_mod( 'understrap_container_type' );
     <?php endif; ?>
 <?php endif; ?>
 
-<footer>
+<footer id="main-footer">
     <!-- The social menu goes here -->
     <?php
     wp_nav_menu(
