@@ -138,3 +138,25 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.location-title > * {
+  font-weight: normal;
+}
+
+.start_date_time, .end_date_time {
+  font-weight: normal;
+}
+
+.map-link {
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.map-link {
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}

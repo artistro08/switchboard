@@ -141,22 +141,28 @@ $events               = new WP_Query($args); ?>
                 <?php while ($events->have_posts()) : $events->the_post(); ?>
                     <?php
                         // Get the start and end dates
-                        $start_date = DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()));
-                        $start_date_time = DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()));
-                        $end_date = DateTime::createFromFormat("F j, Y g:i a", get_field('end_date', get_the_ID()));
+                        $start_date      = DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()))->format('F j, Y');
+                        $start_date_time = DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()))->format('g:i a');
+                        $end_date        = DateTime::createFromFormat("F j, Y g:i a", get_field('end_date', get_the_ID()))->format('F j, Y');
+                        $end_date_time   = DateTime::createFromFormat("F j, Y g:i a", get_field('end_date', get_the_ID()))->format('g:i a');
+                        $display_date    = '';
 
-                        $is_past_event = $end_date < new DateTime() ? true : false;
+                        // Check if event is in the past
+                        // Also check if event is in the same day
+                        $is_past_event = DateTime::createFromFormat("F j, Y g:i a", get_field('end_date', get_the_ID())) < new DateTime() ? true : false;
+                        $is_same_day   = $start_date == $end_date ? true : false;
+                        
+
+                        // Show a different format for the same day events
+                        if ($is_same_day) {
+                            $display_date = "<span class='start_date'>$start_date</span> <br> <span class='start_date_time'>$start_date_time</span><span class='end_date_time'> - $end_date_time</span>";
+                        } else {
+                            $display_date = "<span class='start_date'>$start_date</span> <br> <span class='start_date_time'>$start_date_time</span> <br> <span class='end_date'>$end_date</span> <br> <span class='end_date_time'>$end_date_time</span>";
+                        }
                         
                         // show this event initially
                         $show_this_event = true;
                         
-                        // If the start and end dates are the same day, format the end date to 12-hour time, else format the end date to a human readable format
-                        $end_date = ($start_date->format('Y-m-d') == $end_date->format('Y-m-d')) ? $end_date->format('g:i a') : $end_date->format('F j, Y g:i a');
-                        
-                        // format the start date to a human readable format
-                        $start_date = $start_date->format('F j, Y');
-                        $start_date_time = $start_date_time->format('g:i a');
-
                         $is_editing = str_contains(admin_url(sprintf('admin.php?%s', http_build_query($_GET))), 'edit') ? true : false;
                         
                     ?>
@@ -208,7 +214,7 @@ $events               = new WP_Query($args); ?>
                                     data-bs-target="#<?php echo "{$accordion_id}_events_collapse_{$index}"; ?>" aria-expanded="<?php echo $index === 0 ? 'true' : 'false'; ?>"
                                     aria-controls="<?php echo "{$accordion_id}_events_collapse_{$index}"; ?>">
                                     <div class="text-center">
-                                        <?php echo get_the_title(); ?>:&nbsp;<?php echo $location_title ?>- <?php echo $start_date ?> <br> <?php echo $start_date_time ?> - <?php echo $end_date; ?>
+                                        <?php echo get_the_title(); ?> <br> <span class="location-title"><?php echo $location_title ?></span> <br> <?php echo $display_date ?>
                                     </div>
                                 </button>
                             </h2>
@@ -218,60 +224,69 @@ $events               = new WP_Query($args); ?>
                                 <div class="accordion-body">
                                     <div class="row align-items-center">
                                         <div class="col-12 col-lg-6">
-                                            <?php $location = get_field('location', get_the_ID());
-                                                if( $location ) {
-            
-                                                    // Loop over segments and construct HTML.
-                                                    $address = '';
-                                                    foreach( array('street_number', 'street_name', 'city', 'state', 'post_code', 'country') as $i => $k ) {
-                                                        if( isset( $location[ $k ] ) ) {
-                                                            $address .= sprintf( '<span class="segment-%s">%s</span>, ', $k, $location[ $k ] );
+                                            <div class="row">
+                                                <div class="col-12 col-lg-8 mx-auto">
+                                                    <?php $location = get_field('location', get_the_ID());
+                                                        if( $location ) {
+                    
+                                                            // Loop over segments and construct HTML.
+                                                            $address = '';
+                                                            foreach( array('street_number', 'street_name', 'city', 'state', 'post_code', 'country') as $i => $k ) {
+                                                                if( isset( $location[ $k ] ) ) {
+                                                                    $address .= sprintf( '<span class="segment-%s">%s</span>, ', $k, $location[ $k ] );
+                                                                }
+                                                            }
+                    
+                                                            // Trim trailing comma.
+                                                            $address = trim( $address, ', ' );
+                                                            
+                                                            // Split into array
+                                                            $address = explode(',', $address );
                                                         }
-                                                    }
-            
-                                                    // Trim trailing comma.
-                                                    $address = trim( $address, ', ' );
-                                                    
-                                                    // Split into array
-                                                    $address = explode(',', $address );
-                                                }
-                                            ?>
-                                            <div class="address mb-2">
-                                                <?php foreach( $address as $key => $item ) : ?>
-                                                    <?php echo $item; ?>
-                                                <?php endforeach; ?>
-                                            </div>
-                                            <div class="add-to-calendar">
-                                                <?php if (!$is_editing) : ?>
-                                                    <add-to-calendar-button
-                                                        name="<?php echo get_the_title(); ?>"
-                                                        startDate="<?php echo DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()))->format('Y-m-d'); ?>"
-                                                        endDate="<?php echo DateTime::createFromFormat("F j, Y g:i a", get_field('end_date', get_the_ID()))->format('Y-m-d'); ?>"
-                                                        startTime="<?php echo DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()))->format('g:i a'); ?>"
-                                                        endTime="<?php echo DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()))->format('g:i a'); ?>"
-                                                        location="<?php echo htmlspecialchars ($ical_location_title) ?>"
-                                                        options="['Apple','Google','iCal','Microsoft365','Outlook.com','Yahoo']"
-                                                        timeZone="America/Chicago"
-                                                        trigger="click"
-                                                        inline
-                                                        listStyle="modal"
-                                                        iCalFileName="Reminder-Event"
-                                                    />
-                                                <?php endif; ?>
+                                                    ?>
+                                                    <div class="address mb-2">
+                                                        <?php foreach( $address as $key => $item ) : ?>
+                                                            <?php echo $item; ?>
+                                                        <?php endforeach; ?>
+                                                        <div class="add-to-calendar">
+                                                            <?php if (!$is_editing) : ?>
+                                                                <add-to-calendar-button
+                                                                    name="<?php echo get_the_title(); ?>"
+                                                                    startDate="<?php echo DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()))->format('Y-m-d'); ?>"
+                                                                    endDate="<?php echo DateTime::createFromFormat("F j, Y g:i a", get_field('end_date', get_the_ID()))->format('Y-m-d'); ?>"
+                                                                    startTime="<?php echo DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()))->format('g:i a'); ?>"
+                                                                    endTime="<?php echo DateTime::createFromFormat("F j, Y g:i a", get_field('start_date', get_the_ID()))->format('g:i a'); ?>"
+                                                                    location="<?php echo htmlspecialchars ($ical_location_title) ?>"
+                                                                    options="['Apple','Google','iCal','Microsoft365','Outlook.com','Yahoo']"
+                                                                    timeZone="America/Chicago"
+                                                                    trigger="click"
+                                                                    inline
+                                                                    listStyle="modal"
+                                                                    iCalFileName="Reminder-Event"
+                                                                />
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
-                                            <?php $location = get_field('location', get_the_ID()); if( $location ): ?>
-                                                <?php if (!$is_editing) : ?>
-                                                <div class="acf-map" data-zoom="16">
-                                                    <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
+                                            <div class="row">
+                                                <div class="col-12 col-lg-9 mx-auto">
+                                                    <?php $location = get_field('location', get_the_ID()); if( $location ): ?>
+                                                        <?php if (!$is_editing) : ?>
+                                                            <div class="acf-map" data-zoom="16">
+                                                                <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
+                                                            </div>
+                                                        <?php else : ?>
+                                                            <div class="p-5 bg-secondary d-flex justify-content-center align-items-center">
+                                                                Map will be rendered here
+                                                            </div>
+                                                        <?php endif; ?>
+                                                        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=<?php echo str_replace(',', '', str_replace(' ', '+', $location['address'])); ?>" target="_blank">View on Map</a>
+                                                    <?php endif; ?>
                                                 </div>
-                                                <?php else : ?>
-                                                    <div class="p-5 bg-secondary d-flex justify-content-center align-items-center">
-                                                        Map will be rendered here
-                                                    </div>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
