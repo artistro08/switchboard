@@ -96,7 +96,7 @@ $events               = new WP_Query($args); ?>
             <?php if ($show_filters) : ?>
                 <div class="filter-bar">
                     <form id="<?php echo "{$filter_form_id}_filter-form" ?>" class="collapse filter-form">
-                        <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap">
+                        <div class="d-flex justify-lg-content-center align-lg-items-center gap-3 flex-wrap filter-form-wrapper">
                             <?php foreach ($filters as $i => $filter) : ?>
                                 <?php if ($filter === 'city') : ?>
                                     <div class="filter-div filter-city">
@@ -136,7 +136,7 @@ $events               = new WP_Query($args); ?>
                     </form>
                 </div>
             <?php endif; ?>
-            <hr style="border-top-width: 2px;" class="opacity-100 w-100 mw-100">
+            <hr class="events-header-divider" style="border-top-width: 2px;" class="opacity-100 w-100 mw-100">
             <div class="accordion events-accordion" id="<?php echo "{$accordion_id}_events"; ?>">
                 <?php while ($events->have_posts()) : $events->the_post(); ?>
                     <?php
