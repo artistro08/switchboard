@@ -157,7 +157,7 @@ $events               = new WP_Query($args); ?>
                         if ($is_same_day) {
                             $display_date = "<span class='start_date'>$start_date</span> <br> <span class='start_date_time'>$start_date_time</span><span class='end_date_time'> - $end_date_time</span>";
                         } else {
-                            $display_date = "<span class='start_date'>$start_date</span> <br> <span class='start_date_time'>$start_date_time</span> <br> <span class='to_text'>to</span> <span class='end_date'>$end_date</span> <br> <span class='end_date_time'>$end_date_time</span>";
+                            $display_date = "<span class='start_date'>$start_date</span> <br> <span class='start_date_time'>$start_date_time</span> <br> <span class='to_text'>to</span> <br> <span class='end_date'>$end_date</span> <br> <span class='end_date_time'>$end_date_time</span>";
                         }
                         
                         // show this event initially
