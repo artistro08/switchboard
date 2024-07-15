@@ -190,13 +190,10 @@ function hideFloatingButton() {
 
     document.body.addEventListener('click', function (event) {
         if (mainContainer.contains(event.target)) {
-            console.log('clicked inside');
             jQuery('#floatingButtonContent').collapse('hide');
         } else if (header.contains(event.target)) {
-            console.log('clicked inside header');
             jQuery('#floatingButtonContent').collapse('hide');
         } else if (footer.contains(event.target)) {
-            console.log('clicked inside footer');
             jQuery('#floatingButtonContent').collapse('hide');
         }
     });
@@ -272,8 +269,6 @@ if (!minWidth.matches) {
     
     
     barba.init({
-        debug: true,
-        logLevel: 'debug',
         preventRunning: true,
         transitions: [
             { // Default Transition (Home)
