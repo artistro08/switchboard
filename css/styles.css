@@ -906,10 +906,6 @@ form.switchboard-form::before {
   transition: all 250ms ease;
 }
 
-.floating-button-link:not(.collapsed) {
-  opacity: 0;
-}
-
 .floating-button-content {
   max-width: 400px;
   width: 100%;
