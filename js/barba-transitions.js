@@ -258,11 +258,6 @@ if (!minWidth.matches) {
         if (document.querySelectorAll('.splide').length) {
             advancedCarousel(); 
         }
-        if (data.next.url) {
-            if (data.next.url.href.includes('events')) {
-
-            }
-        }
         
         
     });
