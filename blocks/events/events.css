@@ -161,6 +161,10 @@
   margin: 0 auto;
 }
 
+.events-header-divider, .panel-content .events-header-divider {
+  max-width: 100%;
+}
+
 @media (max-width: 991px) {
   .events-header {
     position: fixed;

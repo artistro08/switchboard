@@ -876,6 +876,26 @@ if (class_exists('acf')) {
 					'zoom'              => '',
 					'height'            => '',
 				),
+				array(
+					'key'               => 'field_66917762750748e',
+					'label'             => 'Description',
+					'name'              => 'description',
+					'aria-label'        => '',
+					'type'              => 'textarea',
+					'instructions'      => 'The description of the event',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => '',
+					'maxlength'         => '',
+					'placeholder'       => '',
+					'prepend'           => '',
+					'append'            => '',
+				),
 			),
 			'location'              => array(
 				array(

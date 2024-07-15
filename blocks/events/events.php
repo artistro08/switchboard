@@ -288,6 +288,11 @@ $events               = new WP_Query($args); ?>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-12">
+                                            <div class="text-center">
+                                                <?php the_field('description', get_the_ID()); ?>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
