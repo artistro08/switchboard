@@ -1027,7 +1027,7 @@ a:hover {
 }
 
 @media (max-width: 991px) {
-  .standalone-panel-content-container.add-content {
+  .standalone-panel-content-container {
     opacity: 1;
   }
 }
