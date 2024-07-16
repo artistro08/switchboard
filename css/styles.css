@@ -250,7 +250,7 @@ footer .nav.split-navigation.footer .nav-link {
 }
 
 main {
-  height: calc(100vh - calc(var(--navbar-height) + var(--footer-height)));
+  height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height)));
   display: flex;
   overflow-x: hidden;
   position: relative;
