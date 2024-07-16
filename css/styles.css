@@ -178,10 +178,13 @@
 
 footer {
   height: var(--footer-height);
-  position: relative;
+  position: fixed;
   display: flex;
   align-items: center;
   z-index: 1088;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .footer-background {
