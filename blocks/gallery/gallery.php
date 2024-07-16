@@ -17,4 +17,8 @@ if( $images ): ?>
             </div>
         <?php endforeach; ?>
     </div>
+<?php else : ?>
+    <div class="is_empty_container">
+        <h1>There are no images here<br> <span class="fw-normal">Check back later</span></h1>
+    </div>
 <?php endif; ?>

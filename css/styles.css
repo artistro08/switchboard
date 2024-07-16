@@ -1011,3 +1011,16 @@ a:hover {
 .to_text {
   font-weight: normal;
 }
+
+.is_empty_container {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - calc(var(--navbar-height) + 7rem + var(--footer-height)));
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.is_empty_container h1 {
+  font-weight: 800;
+}

@@ -58,4 +58,8 @@ if( have_rows('gallery') ): ?>
             </button>
         </div>
     </div>
+<?php else : ?>
+    <div class="is_empty_container">
+        <h1 class="fw-bold">There are no images here<br> <span class="fw-normal">Check back later.</span></h1>
+    </div>
 <?php endif; ?>

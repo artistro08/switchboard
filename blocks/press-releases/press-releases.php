@@ -25,4 +25,8 @@ $press_releases = new WP_Query($args); ?>
 
     <?php wp_reset_postdata(); ?>
 
+<?php else : ?>
+    <div class="is_empty_container">
+        <h1>There are no press releases here<br> <span class="fw-normal">Check back later</span></h1>
+    </div>
 <?php endif; ?>

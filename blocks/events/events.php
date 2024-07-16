@@ -304,6 +304,10 @@ $events               = new WP_Query($args); ?>
             </div>
         </div>
     </div>
+<?php else : ?>
+    <div class="is_empty_container">
+        <h1>There are no events here<br> <span class="fw-normal">Check back later</span></h1>
+    </div>
 <?php endif; ?>
 
 <script data-filter-form-id="<?php echo "{$filter_form_id}_filter-form" ?>" type="text/javascript">
