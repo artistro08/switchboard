@@ -1025,3 +1025,9 @@ a:hover {
 .is_empty_container h1 {
   font-weight: 800;
 }
+
+@media (max-width: 991px) {
+  .standalone-panel-content-container.add-content {
+    opacity: 1;
+  }
+}
