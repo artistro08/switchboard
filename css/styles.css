@@ -214,7 +214,7 @@ footer .nav.split-navigation.footer .nav-link {
 }
 
 .admin-bar main {
-  height: calc(100vh - calc(var(--navbar-height) + var(--footer-height) + 32px));
+  height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height) + 32px));
 }
 
 .fancybox__container {
@@ -565,7 +565,7 @@ main.panel-open:not(.no-animation):hover .panel.active {
   }
 
   .admin-bar main {
-    height: calc(100vh - calc(var(--navbar-height) + var(--footer-height) + 46px));
+    height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height) + 46px));
   }
 
   .admin-bar .fancybox__container {
@@ -573,7 +573,7 @@ main.panel-open:not(.no-animation):hover .panel.active {
   }
 
   .admin-bar .panel-content-container {
-    min-height: calc(100vh - calc(var(--navbar-height) + var(--footer-height) + 46px));
+    min-height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height) + 46px));
   }
 }
 
@@ -588,7 +588,7 @@ main.panel-open:not(.no-animation):hover .panel.active {
 }
 
 .admin-bar .panel-content-container {
-  min-height: calc(100vh - calc(var(--navbar-height) + var(--footer-height) + 32px));
+  min-height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height) + 32px));
 }
 
 .panel-content-container.add-content {
