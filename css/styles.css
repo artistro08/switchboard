@@ -8,6 +8,7 @@
   --panel-title-width: 20vw;
   --panel-content-width: 0;
   --panel-transition-speed: 300ms;
+  --vh: 100vh;
 }
 
 .navbar {
@@ -617,7 +618,7 @@ main.panel-open:not(.no-animation):hover .panel.active {
 
 @media (max-width: 991px) {
   .admin-bar .panel-content-container .ep-gutenberg-content {
-    height: calc(100vh - calc(var(--navbar-height) + 3rem + 46px + var(--footer-height)));
+    height: calc(var(--vh) - calc(var(--navbar-height) + 3rem + 46px + var(--footer-height)));
   }
 
   main {
