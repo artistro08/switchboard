@@ -1006,3 +1006,7 @@ a {
 a:hover {
   color: #dfccf9;
 }
+
+.to_text {
+  font-weight: normal;
+}
