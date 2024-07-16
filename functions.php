@@ -1533,9 +1533,3 @@ function switchboard_form_classes($form)
 {
 	echo 'switchboard-form';
 }
-
-/**
- * Disable the admin bar on front-end as it's useless with barba
- */
-
-add_filter('show_admin_bar', '__return_false');
