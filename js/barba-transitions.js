@@ -1,8 +1,5 @@
 const minWidth = window.matchMedia("(max-width: 991px)");
 
-let vh = window.innerHeight;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
-
 // Prevent Barba from running on the admin bar (Does not update the admin menu)
 document.querySelectorAll("#wpadminbar a").forEach(item => item.setAttribute('data-barba-prevent', 'self'));
 
@@ -847,6 +844,9 @@ if (!minWidth.matches) {
         ]
     });
 } else {
+    let vh = window.innerHeight;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    
     window.addEventListener('resize', function () {
         let vh = window.innerHeight;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
