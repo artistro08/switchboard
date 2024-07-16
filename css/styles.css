@@ -1035,4 +1035,7 @@ a:hover {
     opacity: 1;
     height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height)))
   }
+  .fancybox__container {
+    --panel-title-width: 0vw;
+  }
 }
