@@ -342,7 +342,7 @@ main.panel-open .panel:not(.active):hover {
 
 main.panel-open:not(.no-animation) .panel.active {
   --panel-title-width: 16vw;
-  --panel-content-width: 80vw;
+  --panel-content-width: 84vw;
   --panel-width: 100vw;
   --panel-transition-speed: 700ms;
 }
