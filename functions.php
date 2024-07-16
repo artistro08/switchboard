@@ -1454,13 +1454,6 @@ add_action('admin_menu', function () {
 	remove_menu_page('edit-comments.php');
 });
 
-// Remove comments links from admin bar
-add_action('init', function () {
-	if (is_admin_bar_showing()) {
-		remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
-	}
-});
-
 
 /**
  * Style Understrap's 'understrap_posted_on' function better
