@@ -197,7 +197,7 @@
     overflow: unset;
     width: 100vw;
     display: block;
-    height: calc(100vh - calc(3rem + var(--navbar-height) + var(--footer-height)))
+    height: auto;
   }
 
   .admin-bar .advanced-carousel {

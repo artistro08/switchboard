@@ -52,6 +52,7 @@ function advancedCarousel() {
                 fixedWidth: '65vw',
                 fixedHeight: 'auto',
                 gap: '1.5rem',
+                drag: false,
             }
         }
     });
