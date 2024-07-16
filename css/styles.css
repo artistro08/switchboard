@@ -512,11 +512,11 @@ main.panel-open:not(.no-animation):hover .panel.active {
 
 @media (max-width: 991px) {
   .panel .panel-content {
-    height: calc(100vh - calc(var(--navbar-height) + var(--footer-height) + 3rem));
+    height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height) + 3rem));
   }
 
   .admin-bar .panel .panel-content {
-    height: calc(100vh - calc(var(--navbar-height) + var(--footer-height) + 3rem + 46px));
+    height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height) + 3rem + 46px));
   }
 }
 
@@ -1029,5 +1029,6 @@ a:hover {
 @media (max-width: 991px) {
   .standalone-panel-content-container {
     opacity: 1;
+    height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height)))
   }
 }

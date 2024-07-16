@@ -1,5 +1,8 @@
 const minWidth = window.matchMedia("(max-width: 991px)");
 
+let vh = window.innerHeight;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 // Prevent Barba from running on the admin bar (Does not update the admin menu)
 document.querySelectorAll("#wpadminbar a").forEach(item => item.setAttribute('data-barba-prevent', 'self'));
 
@@ -207,12 +210,12 @@ if (!minWidth.matches) {
         main_container = document.getElementById('main-container');
         animation_target = data.trigger;
         
-        if (typeof animation_target == 'string') { 
+        if (typeof animation_target == 'string') {
             // if the trigger is a string, it's not animate-able
             animation_target = null;
         } else {
             // Animations if you click the panel, or nav link. (nav link is extrapolated from a data attribute)
-            if (animation_target.classList.contains('panel-image-and-title-container')) { 
+            if (animation_target.classList.contains('panel-image-and-title-container')) {
                 animation_target = document.getElementById(data.trigger.id).parentElement;
             } else if (animation_target.classList.contains('nav-link')) {
                 if (document.getElementById('section-' + data.trigger.dataset.animationTarget)) {
@@ -256,7 +259,7 @@ if (!minWidth.matches) {
             Fancybox.bind("[data-fancybox]", {});
         }
         if (document.querySelectorAll('.splide').length) {
-            advancedCarousel(); 
+            advancedCarousel();
         }
         
         
@@ -307,7 +310,7 @@ if (!minWidth.matches) {
             { // Panel -> Panel transition
                 name: 'opened-panel-to-opened-panel',
                 namespace: 'open-panel',
-                from: {namespace: 'open-panel'},
+                from: { namespace: 'open-panel' },
                 to: { namespace: 'open-panel' },
                 
                 async leave(data) {
@@ -609,8 +612,8 @@ if (!minWidth.matches) {
             { // Panel -> Default (Home) Transition
                 name: 'closed-panel',
                 namespace: 'open-panel',
-                from: {namespace: 'open-panel'},
-                to: {namespace: 'default'},
+                from: { namespace: 'open-panel' },
+                to: { namespace: 'default' },
 
                 async leave(data) {
                     let panels = document.querySelectorAll('.panel');
@@ -842,5 +845,10 @@ if (!minWidth.matches) {
                 }
             },
         ]
+    });
+} else {
+    window.addEventListener('resize', function () {
+        let vh = window.innerHeight;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
 }
