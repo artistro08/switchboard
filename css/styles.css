@@ -1040,6 +1040,6 @@ a:hover {
   }
 }
 
-.switchboard-form .frm_style_formidable-style.with_frm_style input::-webkit-input-placeholder, .switchboard-form .frm_style_formidable-style.with_frm_style textarea::-webkit-input-placeholder {
+.frm_style_formidable-style.with_frm_style input::-webkit-input-placeholder, .frm_style_formidable-style.with_frm_style textarea::-webkit-input-placeholder {
   color: #373535 !important;
 }
