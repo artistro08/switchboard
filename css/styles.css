@@ -1040,6 +1040,18 @@ a:hover {
   }
 }
 
-.frm_style_formidable-style.with_frm_style input::-webkit-input-placeholder, .frm_style_formidable-style.with_frm_style textarea::-webkit-input-placeholder {
+.frm_style_formidable-style.with_frm_style .switchboard-form input::-webkit-input-placeholder, .frm_style_formidable-style.with_frm_style .switchboard-form textarea::-webkit-input-placeholder {
   color: #373535 !important;
+}
+
+.switchboard-form fieldset {
+  width: 100%;
+}
+
+.frm_style_formidable-style.with_frm_style .switchboard-form .form-field {
+  margin-bottom: 0;
+}
+
+.switchboard-form .frm_combo_inputs_container, .switchboard-form .frm_grid_container, .switchboard-form .frm_form_fields .frm_section_heading, .switchboard-form .frm_form_fields .frm_fields_container {
+  grid-gap: 0;
 }
