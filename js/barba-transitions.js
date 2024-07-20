@@ -240,6 +240,12 @@ if (!minWidth.matches) {
 
     });
     
+    barba.hooks.beforeEnter((data) => {
+        if (document.querySelectorAll('.frm-g-recaptcha').length) {
+            frmFrontFormJS().renderCaptcha(document.querySelector('.frm-g-recaptcha'), '.frm-g-recaptcha');
+        }
+    });
+    
     barba.hooks.after((data) => {
         initMaps();
         hideFloatingButton();
