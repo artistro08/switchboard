@@ -1055,3 +1055,8 @@ a:hover {
 .switchboard-form .frm_combo_inputs_container, .switchboard-form .frm_grid_container, .switchboard-form .frm_form_fields .frm_section_heading, .switchboard-form .frm_form_fields .frm_fields_container {
   grid-gap: 0;
 }
+
+.switchboard-form .frm_combo_inputs_container {
+  display: flex;
+  flex-direction: column;
+}
