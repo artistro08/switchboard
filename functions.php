@@ -50,6 +50,7 @@ function theme_enqueue_styles()
 	if (class_exists('acf')) {
 		wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . get_field('google_maps_api_key', 'option') . '&callback=Function.prototype');
 	}
+	wp_enqueue_script('g-recaptcha', 'https://www.google.com/recaptcha/api.js');
 	wp_enqueue_script('barba-core', 'https://unpkg.com/@barba/core', array(), $the_theme->get('Version'), true);
 	wp_enqueue_script('barba-transitions', get_stylesheet_directory_uri() . '/js/barba-transitions.js', array(), $the_theme->get('Version'), true);
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
