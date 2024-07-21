@@ -260,7 +260,9 @@ if (!minWidth.matches) {
         }
         
         if (document.querySelectorAll('.frm-g-recaptcha').length) {
-            frmFrontFormJS().renderCaptcha(document.querySelector('.frm-g-recaptcha'), '.frm-g-recaptcha');
+            document.querySelectorAll('.frm-g-recaptcha').forEach(element => {
+                frmFrontFormJS().renderCaptcha(element, '.frm-g-recaptcha');
+            });
         }
         
     });
