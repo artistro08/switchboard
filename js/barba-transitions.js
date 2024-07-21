@@ -134,6 +134,29 @@ function initMaps() {
 
 initMaps();
 
+function addRecaptchaInfo() {
+    if (document.querySelectorAll('.frm-g-recaptcha').length) {
+        document.querySelectorAll('.frm-g-recaptcha').forEach(element => {
+            let recaptchaText = document.createElement('p');
+            let recaptchaInfoDiv = document.createElement('div');
+            let recaptchaInfoTerms = document.createElement('a');
+            let recaptchaInfoPrivacy = document.createElement('a');
+            recaptchaInfoDiv.appendChild(recaptchaText); 
+            recaptchaText.innerHTML = 'This site is protected by reCAPTCHA.';
+            recaptchaInfoDiv.classList.add('recaptcha-info');
+            recaptchaInfoTerms.href = 'https://policies.google.com/terms';
+            recaptchaInfoTerms.innerHTML = 'Terms of Service';
+            recaptchaInfoDiv.appendChild(recaptchaInfoTerms);
+            recaptchaInfoPrivacy.href = 'https://policies.google.com/privacy';
+            recaptchaInfoPrivacy.innerHTML = 'Privacy Policy';
+            recaptchaInfoDiv.appendChild(recaptchaInfoPrivacy);
+            element.parentElement.appendChild(recaptchaInfoDiv);
+        });
+    }
+}
+
+addRecaptchaInfo();
+
 // Clear Form Filters function
 function clearFilters(filter_form_id, accordion_id) {
     let cityFilter = document.getElementById(filter_form_id + '_filter-city');
@@ -262,6 +285,7 @@ if (!minWidth.matches) {
         if (document.querySelectorAll('.frm-g-recaptcha').length) {
             document.querySelectorAll('.frm-g-recaptcha').forEach(element => {
                 frmFrontFormJS().renderCaptcha(element, '.frm-g-recaptcha');
+                addRecaptchaInfo();
             });
         }
         

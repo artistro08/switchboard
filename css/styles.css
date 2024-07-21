@@ -1068,3 +1068,20 @@ a:hover {
 .frm_form_field .grecaptcha-badge {
   visibility: hidden;
 }
+
+.recaptcha-info p {
+  margin-bottom: 0rem;
+  color: #373535;
+  font-size: 1rem;
+}
+
+.recaptcha-info a {
+  font-size: 1rem;
+  display: inline-block;
+  margin-right: .5rem;
+  color: #373535;
+}
+
+.recaptcha-info {
+  margin-top: .5rem;
+}
