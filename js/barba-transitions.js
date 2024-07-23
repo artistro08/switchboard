@@ -137,10 +137,14 @@ initMaps();
 function addRecaptchaInfo() {
     if (document.querySelectorAll('.frm-g-recaptcha').length) {
         document.querySelectorAll('.frm-g-recaptcha').forEach(element => {
+            if (element.parentElement.querySelector('.recaptcha-info')) {
+                return;
+            }
             let recaptchaText = document.createElement('p');
             let recaptchaInfoDiv = document.createElement('div');
             let recaptchaInfoTerms = document.createElement('a');
             let recaptchaInfoPrivacy = document.createElement('a');
+            
             recaptchaInfoDiv.appendChild(recaptchaText); 
             recaptchaText.innerHTML = 'This site is protected by reCAPTCHA.';
             recaptchaInfoDiv.classList.add('recaptcha-info');
@@ -285,9 +289,10 @@ if (!minWidth.matches) {
         if (document.querySelectorAll('.frm-g-recaptcha').length) {
             document.querySelectorAll('.frm-g-recaptcha').forEach(element => {
                 frmFrontFormJS().renderCaptcha(element, '.frm-g-recaptcha');
-                addRecaptchaInfo();
             });
         }
+        
+        addRecaptchaInfo();
         
     });
     
