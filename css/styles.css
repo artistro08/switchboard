@@ -1103,6 +1103,9 @@ a:hover {
   }
 
   .floating-button .content {
-    max-height: calc(92vh - calc(var(--navbar-height) + var(--footer-height)));
+    max-height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height)) - 90px);
+  }
+  .floating-button {
+    right: 1rem;
   }
 }
