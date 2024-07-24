@@ -1043,6 +1043,8 @@ a:hover {
 
 .frm_style_formidable-style.with_frm_style .switchboard-form input::-webkit-input-placeholder, .frm_style_formidable-style.with_frm_style .switchboard-form textarea::-webkit-input-placeholder {
   color: #373535 !important;
+  font-size: 1.2rem;
+  opacity: .7;
 }
 
 .switchboard-form fieldset {
