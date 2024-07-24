@@ -33,7 +33,7 @@ function theme_enqueue_styles()
 
 	// Get the theme data.
 	$the_theme = wp_get_theme();
-	$custom_assets_version = '0.0.4';
+	$custom_assets_version = '0.0.5';
 
 	$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 	// Grab asset urls.
