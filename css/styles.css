@@ -1035,6 +1035,11 @@ a:hover {
     opacity: 1;
     height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height)))
   }
+  
+  .four-oh-four .standalone-panel-content-container {
+    height: calc(var(--vh) - calc(var(--navbar-height) + var(--footer-height)) - 90px);
+    padding: 1rem;
+  }
 
   .fancybox__container {
     --panel-title-width: 0vw;
@@ -1089,6 +1094,17 @@ a:hover {
   margin-top: .5rem;
 }
 
+.standalone-panel.four-oh-four img {
+  width: 60vh;
+  display: block;
+  margin: auto;
+}
+
+.four-oh-four .standalone-panel-content-container {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 991px) {
   .dropdown-item {
     font-size: 1.6rem;
@@ -1107,5 +1123,8 @@ a:hover {
   }
   .floating-button {
     right: 1rem;
+  }
+  .standalone-panel.four-oh-four img {
+    width: 75vh;
   }
 }
