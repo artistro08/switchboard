@@ -794,7 +794,7 @@ if (class_exists('acf')) {
 					'library'           => 'all',
 					'min_size'          => '',
 					'max_size'          => '',
-					'mime_types'        => 'pdf,zip',
+					'mime_types'        => 'pdf,zip,jpg,png,gif', 
 				),
 			),
 			'location'              => array(
